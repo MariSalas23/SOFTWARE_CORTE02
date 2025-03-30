@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/MariSalas23/SOFTWARE_CORTE02.git
+          uri: https://github.com/MariSalas23/SOFTWARE_store-app-config.git
           clone-on-start: true
 
 #eureka:
