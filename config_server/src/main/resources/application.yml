@@ -8,14 +8,20 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/JSebasDev/store-app-config.git
+          uri: https://github.com/MariSalas23/SOFTWARE_store-app-config.git
           clone-on-start: true
 
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
+  # Configuración de Jaeger para trazabilidad distribuida
+  zipkin:
+    base-url: http://jaeger:5775/api/traces  # Cambia esta URL si es necesario para tu configuración de Jaeger
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus  # Exponer métricas Prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true  # Habilitar la exportación de métricas Prometheus
+        step: 30s      # Intervalo de tiempo para la recopilación de métricas

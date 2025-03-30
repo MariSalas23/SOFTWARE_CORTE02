@@ -25,6 +25,47 @@ services:
     networks:
       - app_network
 
+  prometheus:
+    image: prom/prometheus:v2.39.0
+    container_name: prometheus_container
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Montamos el archivo prometheus.yml
+    ports:
+      - "9090:9090"  # Cambié el puerto 9090 a 9091
+    networks:
+      - app_network
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.37
+    container_name: jaeger_container
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_HTTP_PORT: 9411
+    ports:
+      - "5775:5775"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"  # Interfaz de usuario de Jaeger
+      - "14250:14250"
+      - "14267:14267"
+      - "14268:14268"
+      - "9411:9411"
+    networks:
+      - app_network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana_container
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: "admin"  # Contraseña de administrador de Grafana
+    ports:
+      - "3000:3000"  # El puerto por defecto de Grafana es 3000
+    depends_on:
+      - prometheus
+      - jaeger
+    networks:
+      - app_network
+
 volumes:
   mysql_data:
   redis_data:

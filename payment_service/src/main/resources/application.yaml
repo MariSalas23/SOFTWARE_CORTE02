@@ -14,3 +14,28 @@ spring:
     name: payment-service
   config:
     import: configserver:http://localhost:9296
+
+  # Habilitar Prometheus
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,prometheus  # Exponer métricas Prometheus
+    metrics:
+      export:
+        prometheus:
+          enabled: true  # Habilitar exportación de métricas a Prometheus
+          step: 30s      # Intervalo de tiempo para la recopilación de métricas
+
+  # Configuración de Jaeger para trazabilidad distribuida
+  sleuth:
+    sampler:
+      probability: 1.0  # 100% de las solicitudes serán trazadas
+    tracer:
+      enabled: true  # Habilitar el tracer
+    propagation-keys: x-b3-traceid,x-b3-spanid,x-b3-parentspanid,x-b3-sampled
+
+# Configuración de Jaeger
+jaeger:
+  endpoint: http://localhost:5775/api/traces  # URL de Jaeger
+  service-name: payment-service  # Nombre del servicio
