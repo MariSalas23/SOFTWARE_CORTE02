@@ -2,7 +2,8 @@ global:
   scrape_interval: 15s  # Intervalo entre las consultas a los endpoints
 
 scrape_configs:
-  - job_name: 'config-server'  # Nombre del trabajo que se realizará para obtener las métricas
-    metrics_path: '/actuator/prometheus'  # Ruta del endpoint que Prometheus usará para obtener las métricas
+  - job_name: 'product-service'  # Nombre del trabajo para el Product Service
+  
     static_configs:
-      - targets: ['localhost:9296']  # Dirección donde se encuentra el Config Server
+      - targets: ["localhost:8080"]
+    metrics_path: '/actuator/prometheus'
