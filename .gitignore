@@ -22,3 +22,13 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/.idea/.gitignore
+/.idea/compiler.xml
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/modules/product_service.main.iml
+/.idea/store-app.iml
+/.idea/vcs.xml
+/.idea/modules/order_service.main.iml
+/.idea/modules/payment_service.main.iml

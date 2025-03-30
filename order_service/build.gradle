@@ -46,9 +46,6 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'com.okta.spring:okta-spring-boot-starter:3.0.5'
 	implementation 'com.h2database:h2'
 
 	compileOnly 'org.projectlombok:lombok'
@@ -59,7 +56,6 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation "com.github.JensPiegsa:wiremock-extension:0.4.0"
 	testImplementation "org.wiremock:wiremock:3.2.0"
 	testImplementation 'org.junit.jupiter:junit-jupiter-api'

@@ -1,0 +1,5 @@
+-- init-multiple-dbs.sql
+
+CREATE DATABASE IF NOT EXISTS order_db;
+CREATE DATABASE IF NOT EXISTS payment_db;
+CREATE DATABASE IF NOT EXISTS product_db;

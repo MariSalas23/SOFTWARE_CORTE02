@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/authenticate")
 public class AuthenticationController {
 
-    @GetMapping("/login")
+    /*@GetMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(
             @AuthenticationPrincipal OidcUser oidcUser,
             Model model,
@@ -38,6 +38,6 @@ public class AuthenticationController {
                         .collect(Collectors.toList()))
                 .build();
         return new ResponseEntity<>(authenticationResponse, HttpStatus.OK);
-    }
+    }*/
 
 }
