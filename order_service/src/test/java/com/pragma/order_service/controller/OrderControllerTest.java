@@ -40,6 +40,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.util.StreamUtils.copyToString;
 
+
 @SpringBootTest({"server.port=0"})
 @EnableConfigurationProperties
 @AutoConfigureMockMvc
